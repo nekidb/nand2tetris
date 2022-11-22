@@ -1,0 +1,13 @@
+CHIP ControlPC {
+
+    IN  in[3],		// Control bits from C-instruction
+    	ng,		// Bit ng from ALU output
+	zr;		// Bit zr from ALU output
+    
+    OUT out[1];
+
+    PARTS:
+    
+       
+}
+
