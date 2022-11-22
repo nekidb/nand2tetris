@@ -3,8 +3,8 @@ if &cp | set nocp | endif
 let s:cpo_save=&cpo
 set cpo&vim
 inoremap <C-U> u
-xmap Q gq
 nmap Q gq
+xmap Q gq
 omap Q gq
 xmap gx <Plug>NetrwBrowseXVis
 nmap gx <Plug>NetrwBrowseX
@@ -53,7 +53,8 @@ badd +1 CPU.hdl
 badd +1 Memory.hdl
 badd +1 Memory.tstt
 badd +1 Memory.tst
-badd +0 ControlPS.hdl
+badd +1 ControlPS.hdl
+badd +0 ControlPC.hdl
 argglobal
 %argdel
 $argadd Computer.hdl
@@ -620,9 +621,9 @@ normal! zt
 keepjumps 2
 normal! 0
 tabnext
-edit ControlPS.hdl
+edit ControlPC.hdl
 argglobal
-if bufexists(fnamemodify("ControlPS.hdl", ":p")) | buffer ControlPS.hdl | else | edit ControlPS.hdl | endif
+if bufexists(fnamemodify("ControlPC.hdl", ":p")) | buffer ControlPC.hdl | else | edit ControlPC.hdl | endif
 balt Memory.tst
 setlocal keymap=
 setlocal noarabic
@@ -752,12 +753,12 @@ setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 7 - ((6 * winheight(0) + 34) / 69)
+let s:l = 2 - ((1 * winheight(0) + 34) / 69)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 7
-normal! 015|
+keepjumps 2
+normal! 0
 tabnext 5
 set stal=1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
